@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atlasfive
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: backend
+  template:
+    metadata:
+      labels:
+        type: backend
+    spec:
+      containers:
+      - name: maria
+        image: mariadb
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: admin
+
